@@ -1,0 +1,67 @@
+/*
+ * Copyright 2016 Veritas Technologies LLC.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+ext {
+  openstack4jVersion = '3.1.0'
+  commonsNetVersion = '3.5'
+  commonsIOVersion = '1.3.2'
+}
+
+dependencies {
+  implementation project(":clouddriver-core")
+  implementation project(":clouddriver-consul")
+  implementation project(":cats:cats-core")
+  implementation project(":clouddriver-security")
+
+  compileOnly "org.projectlombok:lombok"
+  annotationProcessor "org.projectlombok:lombok"
+  testAnnotationProcessor "org.projectlombok:lombok"
+
+  implementation "org.apache.commons:commons-lang3"
+  implementation "org.apache.httpcomponents:httpcore"
+  implementation "org.apache.httpcomponents:httpclient"
+  implementation "com.netflix.spectator:spectator-api"
+  implementation "com.netflix.spinnaker.fiat:fiat-api:$fiatVersion"
+  implementation "com.netflix.spinnaker.fiat:fiat-core:$fiatVersion"
+  implementation "org.codehaus.groovy:groovy-all"
+  implementation "org.slf4j:jcl-over-slf4j"
+  implementation "com.netflix.frigga:frigga"
+  implementation "com.netflix.spinnaker.moniker:moniker"
+  implementation "com.squareup.okhttp:okhttp"
+  implementation "com.squareup.okhttp:okhttp-apache"
+  implementation "com.squareup.okhttp:okhttp-urlconnection"
+  implementation "com.squareup.retrofit:converter-jackson"
+  implementation "com.squareup.retrofit:retrofit"
+  implementation "org.springframework.boot:spring-boot-actuator"
+  implementation "org.springframework.boot:spring-boot-starter-web"
+
+  compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml"
+  compile "org.pacesys:openstack4j-core:$openstack4jVersion"
+  compile "org.pacesys.openstack4j.connectors:openstack4j-jersey2:$openstack4jVersion"
+  compile "commons-net:commons-net:$commonsNetVersion"
+  compile "org.apache.commons:commons-io:$commonsIOVersion"
+
+  testImplementation "com.netflix.spinnaker.kork:kork-exceptions"
+  testImplementation "com.netflix.spinnaker.kork:kork-jedis-test"
+  testImplementation "cglib:cglib-nodep"
+  testImplementation "com.natpryce:hamkrest"
+  testImplementation "junit:junit"
+  testImplementation "org.objenesis:objenesis"
+  testImplementation "org.spockframework:spock-core"
+  testImplementation "org.spockframework:spock-spring"
+  testImplementation "org.springframework.boot:spring-boot-starter-test"
+  testImplementation "org.springframework:spring-test"
+}
